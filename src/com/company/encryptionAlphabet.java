@@ -6,10 +6,19 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-public class decodingAlphabet {
-    StringBuilder decoding(String text, int key) {
-        encryptionAlphabet encryptionAlphabet = new encryptionAlphabet();
-        StringBuilder result = encryptionAlphabet.enctyption(text, 26 - (key % 26));
+public class encryptionAlphabet {
+    StringBuilder enctyption(String text, int key) {
+        StringBuilder result = new StringBuilder();
+        for (char character : text.toCharArray()) {
+            if (character != ' ') {
+                int originalAlphabetPosition = character - 'a';
+                int newAlphabetPosition = (originalAlphabetPosition + key) % 26;
+                char newCharacter = (char) ('a' + newAlphabetPosition);
+                result.append(newCharacter);
+            } else {
+                result.append(character);
+            }
+        }
         File file = new File("encryptedFile.txt");
         try(RandomAccessFile randomAccessFile = new RandomAccessFile("encryptedFile.txt", "rw");
             FileChannel channel = randomAccessFile.getChannel()) {
@@ -24,5 +33,4 @@ public class decodingAlphabet {
         }
         return result;
     }
-
 }
