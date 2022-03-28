@@ -30,8 +30,9 @@ public class Runner {
                     decodingCaesar(readFile(pickFile()), key);
                     break;
                 case "2":
-                    System.out.println("Пока не рабоатет :(");
-                    //TODO: доделать метод
+                    System.out.println("Режим: brute force");
+                    System.out.println("Укажите путь к зашифрованному тексту в виде:  \"*.txt\"");
+                    decodingBruteForce(readFile(pickFile()));
                     break;
                 case "3":
                     System.out.println("Пока не рабоатет ;(");
@@ -106,7 +107,7 @@ public class Runner {
         StringBuilder builder = new StringBuilder();
         String text = null;
         File file = new File(path.toString());
-        try(RandomAccessFile randomAccessFile = new RandomAccessFile(file,  "r");
+        try(RandomAccessFile randomAccessFile = new RandomAccessFile(file,  "rw");
             FileChannel channel = randomAccessFile.getChannel()
         ) {
             ByteBuffer byteBuffer = ByteBuffer.allocate((int) channel.size());
@@ -130,15 +131,19 @@ public class Runner {
         encryptionAlphabet.enctyption(text, key);
     }
 
+    //Функция расшифровки по ключу
     public static void decodingCaesar(String text, int key) {
         decodingAlphabet decodingAlphabet = new decodingAlphabet();
         decodingAlphabet.decoding(text, key);
     }
 
-    public static void decodingBruteForce(String text, int key) {
-        //TODO: доделать
+    //Функция расшифровки БрутФорса
+    public static void decodingBruteForce(String text) {
+        decodingAlphabet decodingAlphabet = new decodingAlphabet();
+        System.out.println("Ключ Цезаря: " + decodingAlphabet.decodingBruteForce(text));
     }
 
+    //Функция расшифровки Стат. анализа
     public static void decodingStatisticalAnalysis(String text, int key) {
         //TODO: доделать
     }

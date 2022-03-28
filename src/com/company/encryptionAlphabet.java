@@ -5,19 +5,22 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.Locale;
 
 public class encryptionAlphabet {
     StringBuilder enctyption(String text, int key) {
-        StringBuilder result = new StringBuilder();
-        for (char character : text.toCharArray()) {
-            if (character != ' ') {
-                int originalAlphabetPosition = character - 'a';
-                int newAlphabetPosition = (originalAlphabetPosition + key) % 26;
-                char newCharacter = (char) ('a' + newAlphabetPosition);
-                result.append(newCharacter);
-            } else {
-                result.append(character);
+        StringBuilder result = new StringBuilder(text.length());
+        for(int i = 0; i < text.length(); i++) {
+            int c = text.charAt(i);
+            if(Character.isUpperCase(c)) {
+                c = c+(key % 26);
+                if(c > 'Z') c = c-26;
             }
+            else if(Character.isLowerCase(c)) {
+                c = c+(key % 26);
+                if(c > 'z') c = c-26;
+            }
+            result.append((char)c);
         }
         File file = new File("encryptedFile.txt");
         try(RandomAccessFile randomAccessFile = new RandomAccessFile("encryptedFile.txt", "rw");
