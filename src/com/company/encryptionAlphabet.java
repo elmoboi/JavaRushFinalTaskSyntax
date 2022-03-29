@@ -8,7 +8,7 @@ import java.nio.channels.FileChannel;
 import java.util.Locale;
 
 public class encryptionAlphabet {
-    StringBuilder enctyption(String text, int key) {
+    static StringBuilder enctyption(String text, int key) {
         StringBuilder result = new StringBuilder(text.length());
         for(int i = 0; i < text.length(); i++) {
             int c = text.charAt(i);
@@ -35,5 +35,10 @@ public class encryptionAlphabet {
             e.printStackTrace();
         }
         return result;
+    }
+
+    //Функция шифрования
+    public static void encryption(String text, int key) {
+        enctyption(text, key);
     }
 }

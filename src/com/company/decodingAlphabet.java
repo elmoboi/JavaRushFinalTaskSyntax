@@ -1,5 +1,7 @@
 package com.company;
 
+import org.apache.commons.math3.stat.inference.ChiSquareTest;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -10,7 +12,7 @@ import java.util.Objects;
 
 public class decodingAlphabet {
 
-    StringBuilder decoding(String text, int key) {
+    static StringBuilder decoding(String text, int key) {
         StringBuilder result = new StringBuilder(text.length());
         for(int i = 0; i < text.length(); i++) {
             int c = text.charAt(i);
@@ -24,17 +26,7 @@ public class decodingAlphabet {
             }
             result.append((char)c);
         }
-//        StringBuilder result = new StringBuilder();
-//        for (char chars : text.toCharArray()) {
-//            if (chars != ' ') {
-//                int rightAlfhabetPosition = chars-'a';
-//                int newAlphabetPosition = (rightAlfhabetPosition + key) % 26;
-//                char newChar = (char) ('a' + newAlphabetPosition);
-//                result.append(newChar);
-//            } else {
-//                result.append(char);
-//            }
-//        }
+
         File file = new File("encryptedFile.txt");
         try(RandomAccessFile randomAccessFile = new RandomAccessFile("encryptedFile.txt", "rw");
             FileChannel channel = randomAccessFile.getChannel()) {
@@ -50,7 +42,7 @@ public class decodingAlphabet {
         return result;
     }
 
-    int decodingBruteForce(String text) {
+    static int decodingBruteForce(String text) {
         ArrayList<Integer> keyList = new ArrayList<>();
         for (int i = -26; i < 27; i++) {
             keyList.add(i);
@@ -72,7 +64,7 @@ public class decodingAlphabet {
         return rightKey;
     }
 
-    int textValidator(StringBuilder text) {
+    static int textValidator(StringBuilder text) {
         int count = 0;
         int oldCount = 0;
         validWords[] Validwords = validWords.values();
@@ -87,11 +79,13 @@ public class decodingAlphabet {
         return count;
     }
 
-    int decodingStatAnalysis(String text) {
-        double[] lettersProbability = {0.073, 0.009, 0.030, 0.044, 0.130, 0.028, 0.016, 0.035, 0.074,
-                0.002, 0.003, 0.035, 0.025, 0.078, 0.074, 0.027, 0.003,
-                0.077, 0.063, 0.093, 0.027, 0.013, 0.016, 0.005, 0.019, 0.001};
-        return 0;
+    //Функция расшифровки по ключу
+    public static void decodingCaesar(String text, int key) {
+        decoding(text, key);
     }
 
+    //Функция расшифровки БрутФорса
+    public static void BruteForce(String text) {
+        System.out.println("Ключ Цезаря: " + decodingBruteForce(text));
+    }
 }
