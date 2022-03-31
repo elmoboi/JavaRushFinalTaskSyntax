@@ -52,8 +52,8 @@ public class CaesarCipher {
 
     private static int probableOffset(double[] chiSquares) {
         int probableOffset = 0;
+        System.out.println("Ключ - самый нименьший Chi-Square для offset'a \n");
         for (int offset = 0; offset < chiSquares.length; offset++) {
-            System.out.println("Ключ - самый нименьший Chi-Square для offset'a \n");
             System.out.printf("Chi-Square for offset %d: %.2f%n", offset, chiSquares[offset]);
             if (chiSquares[offset] < chiSquares[probableOffset]) {
                 probableOffset = offset;
