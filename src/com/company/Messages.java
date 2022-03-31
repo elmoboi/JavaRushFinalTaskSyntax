@@ -13,7 +13,7 @@ public class Messages {
     String messageEncryptPicked = "Выбран - режим Шифрование:\n";
     String messageDecryptPicked = "Выбран - режим Расшифровка:\n";
     String errorMessage1 = "Похоже, для работы нужно выбрать один из режимов!";
-    String getErrorMessage2 = "Похоже нужно выбрать какой-либо из режимов, чтобы продолжить работу";
+    String ErrorMessage2 = "Похоже нужно выбрать какой-либо из режимов, чтобы продолжить работу";
     String messageCaesarPicked = "Выбран - режим Цезарь:\n";
     String messageBrureForcePicked = "Выбран - режим Brute Force:\n";
     String messageAnalyticPicked = "Выбран - режим Статистический анализ:\n";

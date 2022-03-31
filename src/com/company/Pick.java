@@ -24,7 +24,7 @@ import java.util.Scanner;
                         break;
                 }
         } catch (NullPointerException e) {
-            System.out.println(messages.getErrorMessage2);
+            System.out.println(messages.ErrorMessage2);
             pickModeMain();
         }
         return userPick;
@@ -53,7 +53,7 @@ import java.util.Scanner;
                         break;
                 }
             } catch (NullPointerException e) {
-                System.out.println(messages.getErrorMessage2);
+                System.out.println(messages.ErrorMessage2);
                 pickModeMain();
             }
         return userPick;
