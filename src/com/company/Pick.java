@@ -19,12 +19,12 @@ import java.util.Scanner;
                         System.out.println(messages.messageDecryptPicked);
                         break;
                     default:
-                        System.out.println(messages.errorMessage1);
+                        System.out.println(messages.errorMessagePickSome);
                         pickModeMain();
                         break;
                 }
         } catch (NullPointerException e) {
-            System.out.println(messages.ErrorMessage2);
+            System.out.println(messages.ErrorMessagePickSomeMode);
             pickModeMain();
         }
         return userPick;
@@ -48,12 +48,12 @@ import java.util.Scanner;
                         System.out.println(messages.messageStysticPicked);
                         break;
                     default:
-                        System.out.println(messages.errorMessage3);
+                        System.out.println(messages.errorMessagePickSomeDecode);
                         pickModeMain();
                         break;
                 }
             } catch (NullPointerException e) {
-                System.out.println(messages.ErrorMessage2);
+                System.out.println(messages.ErrorMessagePickSomeMode);
                 pickModeMain();
             }
         return userPick;

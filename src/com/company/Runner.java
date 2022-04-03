@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-import static com.company.decodingAlphabet.BruteForce;
+import static com.company.DecodingAlphabet.BruteForce;
 import static com.company.CaesarCipher.breakCipher;
 
 public class Runner {
@@ -16,7 +16,7 @@ public class Runner {
             Scanner scanner = new Scanner(System.in);
             int key = scanner.nextInt();
             System.out.println(messages.messagePathWhite);
-            encryptionAlphabet.encryption(ReadFile.readFile(Pick.pickFile()), key);
+            EncryptionAlphabet.encryption(ReadFile.readFile(Pick.pickFile()), key);
         } else {
             System.out.println(messages.messagePickMode);
             System.out.println(messages.messagePickDecodingMode);
@@ -27,7 +27,7 @@ public class Runner {
                     Scanner scanner = new Scanner(System.in);
                     int key = scanner.nextInt();
                     System.out.println(messages.messgaeEncryptedPath);
-                    decodingAlphabet.decodingCaesar(ReadFile.readFile(Pick.pickFile()), key);
+                    DecodingAlphabet.decodingCaesar(ReadFile.readFile(Pick.pickFile()), key);
                     break;
                 case "2":
                     System.out.println(messages.messageModeBruteForce);

@@ -1,7 +1,5 @@
 package com.company;
 
-import org.apache.commons.math3.stat.inference.ChiSquareTest;
-
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -10,7 +8,7 @@ import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class decodingAlphabet {
+public class DecodingAlphabet {
 
     static StringBuilder decoding(String text, int key) {
         StringBuilder result = new StringBuilder(text.length());
@@ -67,10 +65,10 @@ public class decodingAlphabet {
     static int textValidator(StringBuilder text) {
         int count = 0;
         int oldCount = 0;
-        validWords[] Validwords = validWords.values();
+        ValidWords[] Validwords = ValidWords.values();
         String[] words = text.toString().split(" ");
         for (String word : words) {
-            for (validWords validword : Validwords) {
+            for (ValidWords validword : Validwords) {
                 if (Objects.equals(word, validword.toString())) {
                     count++;
                 }

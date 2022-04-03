@@ -23,7 +23,7 @@ public class CaesarCipher {
         double[] chiSquares = new double[ALPHABET_SIZE];
 
         for (int offset = 0; offset < chiSquares.length; offset++) {
-            String decipheredMessage = String.valueOf(decodingAlphabet.decoding(message, offset));
+            String decipheredMessage = String.valueOf(DecodingAlphabet.decoding(message, offset));
             long[] lettersFrequencies = observedLettersFrequencies(decipheredMessage);
             double chiSquare = new ChiSquareTest().chiSquare(expectedLettersFrequencies, lettersFrequencies);
             chiSquares[offset] = chiSquare;

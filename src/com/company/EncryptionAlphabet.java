@@ -5,9 +5,8 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
-import java.util.Locale;
 
-public class encryptionAlphabet {
+public class EncryptionAlphabet {
     static StringBuilder enctyption(String text, int key) {
         StringBuilder result = new StringBuilder(text.length());
         for(int i = 0; i < text.length(); i++) {

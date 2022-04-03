@@ -1,6 +1,6 @@
 package com.company;
 
-public enum validWords implements CharSequence {
+public enum ValidWords implements CharSequence {
     be,
     and,
     of,
