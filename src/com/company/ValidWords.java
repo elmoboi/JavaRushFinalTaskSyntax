@@ -1,49 +1,9 @@
 package com.company;
 
 public enum ValidWords implements CharSequence {
-    be,
-    and,
-    of,
-    a,
-    in,
-    to,
-    have,
-    too,
-    it,
-    i,
-    that,
-    you,
-    he,
-    with,
-    on,
-    say,
-    at,
-    but,
-    we,
-    his,
-    from,
-    not,
-    can,
-    by,
-    she,
-    or,
-    as,
-    what,
-    go,
-    their,
-    who,
-    get,
-    would,
-    her,
-    all,
-    my,
-    make,
-    about,
-    know,
-    will,
-    up,
-    the;
-
+    be, and, of, a, in, to, have, too, it, i, that, you, he, with, on, say,
+    at, but, we, his, from, not, can, by, she, or, as, what, go, their,
+    who, get, would, her, all, my, make, about, know, will, up, the;
 
     @Override
     public int length() {

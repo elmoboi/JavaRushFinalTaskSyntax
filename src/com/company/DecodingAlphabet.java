@@ -12,22 +12,21 @@ public class DecodingAlphabet {
 
     static StringBuilder decoding(String text, int key) {
         StringBuilder result = new StringBuilder(text.length());
-        for(int i = 0; i < text.length(); i++) {
+        for (int i = 0; i < text.length(); i++) {
             int c = text.charAt(i);
-            if(Character.isUpperCase(c)) {
-                c = c-(key % 26);
-                if(c < 'A') c = c+26;
+            if (Character.isUpperCase(c)) {
+                c = c - (key % 26);
+                if (c < 'A') c = c + 26;
+            } else if (Character.isLowerCase(c)) {
+                c = c - (key % 26);
+                if (c < 'a') c = c + 26;
             }
-            else if(Character.isLowerCase(c)) {
-                c = c-(key % 26);
-                if(c < 'a') c = c+26;
-            }
-            result.append((char)c);
+            result.append((char) c);
         }
 
         File file = new File("encryptedFile.txt");
-        try(RandomAccessFile randomAccessFile = new RandomAccessFile("encryptedFile.txt", "rw");
-            FileChannel channel = randomAccessFile.getChannel()) {
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile("encryptedFile.txt", "rw");
+             FileChannel channel = randomAccessFile.getChannel()) {
             file.createNewFile();
             String encryptedText = result.toString();
             ByteBuffer byteBuffer = ByteBuffer.allocate(encryptedText.getBytes().length);
@@ -51,12 +50,12 @@ public class DecodingAlphabet {
         int oldCount = 0;
         for (Integer key : keyList) {
             count = textValidator(decoding(text, key));
-            if(oldCount < count) {
+            if (oldCount < count) {
                 oldCount = count;
                 rightKey = key;
             }
         }
-        if(rightKey == -26) {
+        if (rightKey == -26) {
             rightKey = 0;
         }
         return rightKey;

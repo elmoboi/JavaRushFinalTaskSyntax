@@ -13,8 +13,8 @@ public class ReadFile {
         StringBuilder builder = new StringBuilder();
         String text = null;
         File file = new File(path.toString());
-        try(RandomAccessFile randomAccessFile = new RandomAccessFile(file,  "rw");
-            FileChannel channel = randomAccessFile.getChannel()
+        try (RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
+             FileChannel channel = randomAccessFile.getChannel()
         ) {
             ByteBuffer byteBuffer = ByteBuffer.allocate((int) channel.size());
 

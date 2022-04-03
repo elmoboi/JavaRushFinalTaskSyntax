@@ -2,8 +2,8 @@ package com.company;
 
 import java.util.Scanner;
 
-import static com.company.DecodingAlphabet.BruteForce;
 import static com.company.CaesarCipher.breakCipher;
+import static com.company.DecodingAlphabet.BruteForce;
 
 public class Runner {
     public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Runner {
         Messages messages = new Messages();
         System.out.println(messages.messagePickMode);
         System.out.println(messages.messagePickMain);
-        if(Pick.pickModeMain().equals("1")) {
+        if (Pick.pickModeMain().equals("1")) {
             System.out.println(messages.messageEncryptKey);
             Scanner scanner = new Scanner(System.in);
             int key = scanner.nextInt();
